@@ -1,0 +1,6 @@
+<div class="detail row">
+  <span>{{title}}</span>
+  <div class="col-md-3" *ngFor="let flowerItem of flowerList">
+      <app-flower [flower]="flowerItem" (onDetail)="onDetail($event)"></app-flower>
+  </div>
+</div>
