@@ -16,7 +16,7 @@ import { MaumoiComponent } from './maumoi/maumoi.component';
 import { HoatuoiComponent } from './hoatuoi/hoatuoi.component';
 import { HoachauComponent } from './hoachau/hoachau.component';
 import { KhuyenmaiComponent } from './khuyenmai/khuyenmai.component';
-
+import { MessageService } from './message.service';
 
 @NgModule({
   declarations: [

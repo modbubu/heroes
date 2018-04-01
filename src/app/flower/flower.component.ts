@@ -3,7 +3,7 @@ import { Component, OnInit, Output, Input,EventEmitter } from '@angular/core';
 interface FlowerData{
   name: string,
   img: string,
-  decription: string,
+  description: string,
   price: number
 }
 
@@ -24,6 +24,10 @@ export class FlowerComponent implements OnInit {
 
   onClick() {
     this.onDetail.emit(this.flower.name);
+    let str = "Ten: " + this.flower.name + "\n";
+    str += "Mo ta: " + this.flower.description;
+    alert(str);
+
   }
 
 }
