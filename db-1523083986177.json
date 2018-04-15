@@ -1,0 +1,12 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "type": "maumoi",
+      "name": "Hoa Sen",
+      "price": "40000",
+      "img": "assets/hoa/hoa1.jpg",
+      "description": "thanh khiet"
+    }
+  ]
+}

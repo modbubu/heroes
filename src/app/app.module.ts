@@ -17,6 +17,10 @@ import { HoatuoiComponent } from './hoatuoi/hoatuoi.component';
 import { HoachauComponent } from './hoachau/hoachau.component';
 import { KhuyenmaiComponent } from './khuyenmai/khuyenmai.component';
 import { MessageService } from './message.service';
+import { HttpClientModule } from '@angular/common/http';
+import { DataService } from './data.service';
+import { PruductManagerComponent } from './pruduct-manager/pruduct-manager.component';
+import { ProductComponent } from './product/product.component';
 
 @NgModule({
   declarations: [
@@ -31,14 +35,17 @@ import { MessageService } from './message.service';
     MaumoiComponent,
     HoatuoiComponent,
     HoachauComponent,
-    KhuyenmaiComponent
+    KhuyenmaiComponent,
+    PruductManagerComponent,
+    ProductComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [ MessageService, DataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,42 +1,30 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable()
 export class DataService {
 
   flowerList: object [];
 
-  constructor() { }
-
-  getList() {
-    this.flowerList = [
-    [
-      {
-        name: "Hoa Sen",
-        price: "40.000đ",
-        img: "/src/assets/hoa/hoa1.jpg",
-        description: "Thanh Khiết"
-      },
-      {
-        name: "Hoa Hồng",
-        price: "50.000đ",
-        img: "/src/assets/hoa/hoa1.jpg",
-        description: "Ngọt ngào, nồng thấm"
-      },
-      {
-        name: "Hoa Păng-Xê",
-        price: "70.000đ",
-        img: "/src/assets/hoa/hoa1.jpg",
-        description: "Mê hoặc, Quyến rũ"
-      },
-      {
-        name: "Hoa Sen",
-        price: "40.000đ",
-        img: "/src/assets/hoa/hoa1.jpg",
-        description: "Thanh Khiết"
-      },
-    ]
-    ];
-    return this.flowerList;
+  constructor(private httpClient: HttpClient) { }
+  getOne(id: number){
+    return this.httpClient.get("http://localhost:3000/products?id=" + id);
   }
 
+  getList(type?: string) {
+    if(type !=undefined){return this.httpClient.get("http://localhost:3000/products")
+  }
+    else{
+      return this.httpClient.get("http://localhost:3000/products");
+  }}
+  
+  insertData (data:object) {
+    return this.httpClient.post("http://localhost:3000/products",data);
+  }
+  updateData (id:number,data:object){
+    return this.httpClient.put("http://localhost:3000/product",data);
+  }
+  removeData (id: number){
+    return this.httpClient.delete("http://localhost:3000/product"+ id);
+  }
 }

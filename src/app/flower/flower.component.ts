@@ -20,6 +20,14 @@ export class FlowerComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    if(!this.flower) [
+      this.flower = {
+        name: "",
+        img: "",
+        description: "",
+        price: 0
+      }
+    ]
   }
 
   onClick() {

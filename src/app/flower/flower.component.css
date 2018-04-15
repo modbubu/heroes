@@ -1,1 +1,13 @@
-    
+.hoa-img {
+    margin: auto !important;
+    width: 200px;
+    height: 250px;
+}
+.hoa-detail {
+    padding: 0 !important;
+    margin: 10px 5px 10px 5px;
+}
+.cart {
+    margin-left: 10px !important;
+    padding: 0 !important;
+}
