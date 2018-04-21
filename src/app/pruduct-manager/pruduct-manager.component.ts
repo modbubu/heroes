@@ -24,25 +24,27 @@ export class PruductManagerComponent implements OnInit {
   selectedRow: any;
   
   paginator: any;
-
  
 
   constructor(private dataService: DataService) {
     this.paginator = {
       pages: 0,
       currentPage: 0,
-      rows: 10
-    }
+      rows: 2,
+      pageList: []
+    };
    }
 
   ngOnInit() {
-    // this.getList();
+    this.getList();
   }
 
   getList() {
     this.dataService.getList()
     .subscribe(res => {
       this.dataList = <Product []> res;
+
+      this.paginationHandle();
       
     });
   }
@@ -62,7 +64,7 @@ export class PruductManagerComponent implements OnInit {
       this.dataService.removeData(this.selectedRow.id)
       .subscribe(res => {
         this.getList();
-      })
+      });
     }
   }
 
@@ -70,11 +72,15 @@ export class PruductManagerComponent implements OnInit {
     this.selectedRow = product;
   }
 
-  pagenationHandle( index: any) {
+  paginationHandle( index?: any) {
+
+    if(index == "...")
+      return;
+
     let len = this.dataList.length;
     let pages = Math.ceil(len/this.paginator.rows);
 
-    if(this.paginator.pages == 0) {
+    if(index == undefined) {
     this.paginator.pages = pages;
     
     if (pages > 0) {
@@ -85,42 +91,56 @@ export class PruductManagerComponent implements OnInit {
     this.paginator.currentPage = index;
   }
 
-  //paginator temp
-  let pageList = [];
+  
   if ( pages > 6 ){
-
-    
-
-    if(this.paginator.currentPage > pages - 3) {
-      console.log("debug")
-      pageList.push(1, 2, 3);
-      pageList.push("...");
-      pageList.push(this.paginator.pages - 2, this.paginator.pages -1,)
+    let midIndex = Math.ceil(pages/2);
+    if (this.paginator.pageList.length > 0) {
+      
+      if(this.paginator.currentPage < midIndex) {
+        this.paginator.pageList[0] = this.paginator.currentPage - 1;
+        this.paginator.pageList[1] = this.paginator.currentPage;
+        this.paginator.pageList[2] = this.paginator.currentPage + 1;
+        if (this.paginator.pageList[0] <= 0) {
+          this.paginator.pageList[0] = 1;
+          this.paginator.pageList[1] = 2;
+          this.paginator.pageList[2] = 3;
+        }
+      }
+      else {
+        if (this.paginator.currentPage > midIndex && this.paginator.currentPage < pages) {
+          this.paginator.pageList[4] = this.paginator.currentPage - 1;
+          this.paginator.pageList[5] = this.paginator.currentPage;
+          this.paginator.pageList[6] = this.paginator.currentPage + 1;
+          if (this.paginator.pageList[4] <= midIndex) {
+            this.paginator.pageList[4] = midIndex + 1;
+            this.paginator.pageList[5] = midIndex + 2;
+            this.paginator.pageList[6] = midIndex + 3;
+          }
+        }
+      }
     }
-    pageList.push(this.paginator.currentPage);
-    pageList.push(this.paginator.currentPage + 1);
-    pageList.push(this.paginator.currentPage + 2);
-    pageList.push("...");
-    pageList.push(this.paginator.pages - 2, this.paginator.pages - 1);
-  }
+      else {
+        this.paginator.pageList.push(1, 2, 3);
+        this.paginator.pageList.push("...");
+        this.paginator.pageList.push(midIndex + 1, midIndex + 2, midIndex + 3);
+      }
+
+    }
     else {
-      for(let i = 1; i <= pages; i++) {
-        pageList.push(1);
+      for (let i = 1; i <= pages; i++){
+        this.paginator.pageList.push(i);
       }
     }
 
-    this.paginator.pageList = pageList;
-
-
     let currentData = [];
-    let currentIndex = (this.paginator.currentPage - 1 )*this.paginator.rows;
+    let currentIndex = (this.paginator.currentPage - 1)*this.paginator.rows;
 
-    for (let i = currentIndex; i < this.dataList.length ; i ++ ) {
-      if (currentData.length == this.paginator.rows)
+    for( let i = currentIndex; i < this.dataList.length; i++) {
+      if(currentData.length == this.paginator.rows)
       break;
       currentData.push(this.dataList[i]);
     }
-
-    this.currentDataList = <Product []> currentData; 
-  }
+  
+    this.currentDataList = <Product []> currentData;
+  } 
 }

@@ -1,36 +1,40 @@
 
-<div class="container">
-
-        <!-- Default form contact -->
-        <form>
-            <p class="h4 text-center mb-4">Write to us</p>
-
-            <!-- Default input name -->
-            <label for="defaultFormContactNameEx" class="grey-text">Your name</label>
-            <input type="text" id="defaultFormContactNameEx" class="form-control">
-            
-            <br>
-
-            <!-- Default input email -->
-            <label for="defaultFormContactEmailEx" class="grey-text">Your email</label>
-            <input type="email" id="defaultFormContactEmailEx" class="form-control">
-
-            <br>
-
-            <!-- Default input subject -->
-            <label for="defaultFormContactSubjectEx" class="grey-text">Subject</label>
-            <input type="text" id="defaultFormContactSubjectEx" class="form-control">
-
-            <br>
-            
-            <!-- Default textarea message -->
-            <label for="defaultFormContactMessageEx" class="grey-text">Your message</label>
-            <textarea type="text" id="defaultFormContactMessageEx" class="form-control" rows="3"></textarea>
-
-            <div class="text-center mt-4">
-                <button class="btn btn-outline-warning" type="submit">Send<i class="fa fa-paper-plane-o ml-2"></i></button>
-            </div>
-        </form>
-        <!-- Default form contact -->
-                              
-</div>
+<!-- from: https://mdbootstrap.com/components/forms/ -->
+<!-- Material form contact -->
+<form>
+    <p class="h4 text-center mb-4">{{ title }}</p>
+  
+    <!-- Material input text -->
+    <div class="md-form">
+        <i class="fa fa-user prefix grey-text"></i>
+        <input type="text" [(ngModel)]="data.hoten" name="hotten" class="form-control validate">
+        <label for="hoten">Họ Tên</label>
+    </div>
+  
+    <!-- Material input email -->
+    <div class="md-form">
+        <i class="fa fa-envelope prefix grey-text"></i>
+        <input type="email" [(ngModel)]="data.email" name="email" class="form-control validate">
+        <label for="email" data-error="Invalid">Email</label>
+    </div>
+    
+    <!-- Material input subject -->
+    <div class="md-form">
+        <i class="fa fa-tag prefix grey-text"></i>
+        <input type="text" [(ngModel)]="data.chude" name="chude" class="form-control validate">
+        <label for="chude" data-error="Invalid">Chủ Đề</label>
+    </div>
+    
+    <!-- Material textarea message -->
+    <div class="md-form">
+        <i class="fa fa-pencil prefix grey-text"></i>
+        <textarea type="text" [(ngModel)]="data.noidung" name="noidung" class="form-control md-textarea validate" rows="3"></textarea>
+        <label for="noidung">Nội Dung Liên Hệ</label>
+    </div>
+  
+    <div class="text-center mt-4">
+        <button class="btn btn-outline-secondary" (click)="onClick()" type="submit">Gửi<i class="fa fa-paper-plane-o ml-2"></i></button>
+    </div>
+  </form>
+  <!-- Material form contact -->
+                      

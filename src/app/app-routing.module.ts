@@ -13,21 +13,19 @@ import { PruductManagerComponent } from './pruduct-manager/pruduct-manager.compo
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full'},
   { path: 'home', component: HomeComponent },
-  { path: 'contact', component: ContactComponent },
+  { path: 'lienhe', component: ContactComponent },
   { path: 'flower', component: FlowerComponent },
   { path: 'maumoi', component: DetailComponent, data: {title: "", type: "maumoi"}},
   { path: 'product', component: ProductComponent },
-  { path: 'quanly', component: PruductManagerComponent }
+  { path: 'product-management', component: PruductManagerComponent }
 ]
 
 
 @NgModule({
   imports: [
     BrowserModule,
-    RouterModule.forRoot(routes),
-    CommonModule
+    RouterModule.forRoot(routes)
   ],
-  declarations: [],
   exports: [RouterModule]
   
 })

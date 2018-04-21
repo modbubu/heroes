@@ -1,0 +1,7 @@
+.detail {
+    margin: 10px 10px;
+}
+
+.detail > .card{
+    width: 100%;
+}

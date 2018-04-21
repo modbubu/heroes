@@ -1,0 +1,36 @@
+.table-wrapper {
+    display: block;
+    max-height: 300px;
+    overflow-y: auto;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+}
+
+
+.product-management {
+    border: 0;
+}
+
+.product-management .card-header{
+    margin-right: 20px;
+}
+
+.product-management-tool {
+    width: 100%;
+}
+
+.product-management-search {
+    display: inline-flex;
+}
+
+.product-management-search input {
+    max-width: 200px !important;
+    height: 35px;
+}
+.product-management-search button {
+    width: 30px;
+    margin-top: 3px;
+    height: 30px;
+}
+.product-management-pagination {
+    float: right;
+}

@@ -37,12 +37,11 @@ export class ProductComponent implements OnInit {
     if(activeRoute.snapshot.queryParams.id != undefined)
     {
       this.isCreate = false;
-      this.title="update sản phẩm";
+      this.title = "Update sản phẩm";
       this.dataService.getOne(activeRoute.snapshot.queryParams.id)
       .subscribe(res =>{
-        console.log(res)
         if(res && res[0])
-        this.data = <product>res[0];
+          this.data = <product>res[0];
       });
     }
   }
@@ -62,7 +61,6 @@ export class ProductComponent implements OnInit {
   createProduct() {
     this.dataService.insertData(this.data)
       .subscribe(res => {
-        console.log(888, res)
 
         window.location.assign("/product-management");
       });
@@ -84,11 +82,15 @@ export class ProductComponent implements OnInit {
 
   //Validate data
   validate() {
-    let isValidate = true;
+    let isValidate = false;
+
     for(let i in this.data) {
         if(this.data[i] === "") {        // dấu 3 châm là dâu so sánh kiểu dữ liệu data users string or number
           isValidate = false;
           break;
+        }
+        else {
+          isValidate = true;
         }
     }
 

@@ -1,3 +1,41 @@
-<p>
-  product works!
-</p>
+
+<!-- from: https://mdbootstrap.com/components/forms/ -->
+<!-- Material form contact -->
+<form>
+  <p class="h4 text-center mb-4">{{ title }}</p>
+
+  <!-- Material input text -->
+  <div class="md-form form-group">
+      <input type="text" data-error="wrong text" required="true" minLength="2" [(ngModel)]="data.name" name="name" class="form-control validate" required mdbInputValidate>
+      <label for="name">Tên Sản Phẩm</label>
+  </div>
+
+  <div class="md-form">
+      <input type="text" [(ngModel)]="data.type" name="type" class="form-control validate">
+      <label for="type" data-error="Invalid">Loại Sản Phẩm</label>
+  </div>
+
+  <!-- Material input email -->
+  <div class="md-form">
+      <input type="text" [(ngModel)]="data.price" name="price" class="form-control validate">
+      <label for="price" data-error="Invalid">Giá Sản Phẩm</label>
+  </div>
+  
+  <!-- Material input subject -->
+  <div class="md-form">
+      <input type="text" [(ngModel)]="data.img" name="img" class="form-control validate">
+      <label for="img" data-error="Invalid">Hình Ảnh</label>
+  </div>
+  
+  <!-- Material textarea message -->
+  <div class="md-form">
+      <textarea type="text" [(ngModel)]="data.description" name="description" class="form-control md-textarea validate" rows="3"></textarea>
+      <label for="noidung">Mô Tả</label>
+  </div>
+
+  <div class="text-center mt-4">
+      <button class="btn btn-outline-secondary" (click)="onClick()" type="submit">Ok<i class="fa fa-paper-plane-o ml-2"></i></button>
+  </div>
+</form>
+<!-- Material form contact -->
+                    

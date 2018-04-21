@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -7,7 +8,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  maumoi = {
+    type: "maumoi",
+    title: "Sản Phẩm Mới"
+  }
+
+  banchay = {
+    type: "banchay",
+    title: "Sản Phẩm Bán Chạy"
+  }
+
+  hoatuoi = {
+    type: "hoatuoi",
+    title: "Hoa Tươi"
+  }
+
+  constructor(router: ActivatedRoute) {
+    console.log(router)
+  }
 
   ngOnInit() {
   }

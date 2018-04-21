@@ -1,22 +1,12 @@
 {
-    "products": [
-        {
-            "id": 1,
-            "type": "maumoi",
-            "name": "Hoa Sen",
-            "price": "40000",
-            "img": "assets/hoa/hoa1.jpg",
-            "description": "thanh khiet"
-        },
-        {
-            "id": 2,
-            "type": "maumoi 2",
-            "name": "Hoa Sen 2",
-            "price": "40000",
-            "img": "assets/hoa/hoa1.jpg",
-            "description": "thanh khiet"
-        }
-    ]
-    
-
+  "products": [
+    {
+      "id": 1,
+      "name": "hoa hướng dương",
+      "type": "maumoi",
+      "price": "100.000",
+      "img": "assets/hoa/hoa2.jpg",
+      "description": "hoa mặt trời"
+    }
+  ]
 }

@@ -18,7 +18,8 @@
       "tsconfig": "tsconfig.app.json",
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
-      "styles": [ 
+      "styles": [   
+        "../node_modules/font-awesome/css/font-awesome.min.css",  
         "../node_modules/mdbootstrap/css/bootstrap.css",
         "../node_modules/mdbootstrap/css/mdb.min.css",
         "styles.css"
